@@ -1,0 +1,30 @@
+{
+  "name": "notion-expense-mvp",
+  "version": "1.0.0",
+  "description": "一句话记账 MVP - 解析自然语言支出文本并写入 Notion",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "serve": "ts-node src/server.ts",
+    "test": "jest --config jest.config.js"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "@notionhq/client": "^5.16.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.5.0",
+    "@vercel/node": "^5.6.23",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  }
+}
