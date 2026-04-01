@@ -8,11 +8,23 @@ import { addExpenseRecord } from '../src/tools/addExpenseRecord';
  */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept');
 
   if (req.method === 'OPTIONS') {
     res.status(200).end();
+    return;
+  }
+
+  // GET: return server info / manifest for discovery
+  if (req.method === 'GET') {
+    res.json({
+      name: 'notion-expense',
+      version: '1.0.0',
+      description: '一句话记账助手 - 自动解析并写入 Notion',
+      protocolVersion: '2024-11-05',
+      capabilities: { tools: {} },
+    });
     return;
   }
 
